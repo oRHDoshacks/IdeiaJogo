@@ -8,7 +8,7 @@
             "type": "lua",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceFolder}/player.lua"
+            "program": "${workspaceFolder}/abilidades.lua"
         }
     ]
 }
