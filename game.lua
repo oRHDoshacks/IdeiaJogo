@@ -36,3 +36,6 @@ print(#inimigos)
 criarjogador()
 
 print(jogadores[1].mochila:add("flor",1))
+for l,v in pairs(jogadores[1].mochila:vrf()) do
+	print("voce tem " .. l.. " " .. v .. " no inventario")
+end

@@ -5,26 +5,24 @@ function inventario:add(item ,quantidade) -- Adiciona um item na mochila ou alme
     if self.itens[item] then -- verifica se o item ja existente
         self.itens[item]=self.itens[item]+quantidade
         return ("o item ja existe e foi adicionado mais!")
+    elseif self.max>self.qnt then -- verifica se a quantidade de itens nao exede o maximo da mochila/inventario
+        self.itens[item]=quantidade
+        self.qnt=self.qnt+1
+        return ("o item nao existe e foi criado um novo")
     else
-        if self.max>self.qnt then -- verifica se a quantidade de itens nao exede o maximo da mochila/inventario
-            self.itens[item]=quantidade
-            self.qnt=self.qnt+1
-            return ("o item nao existe e foi criado um novo")
-        else
-            return ("quantidade Maxima atiginda")
-        end
+        return ("quantidade Maxima atiginda")
     end
 
 end
 function inventario:vrf()
+    local t={}
     for l,v in pairs(self.itens) do
-        print(l,v)
         if v == 0 then self.itens[l]=nil end
     end
-    print("====================================")
     for l,v in pairs(self.itens) do
-        print(l,v)
+        table.insert(t,l)
     end
+    return (t)
 end
 function inventario:rmv(item, quantidade) -- Diminui a quantidade de um item na mochila ou o remove
     if self.itens[item] >= quantidade then
